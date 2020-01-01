@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Our Library</title>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h3>Our Library</h3>
+    <hr>
+
+    <a th:href="@{/books/addBookForm}"
+       class="btn btn-primary btn=sm mb-3">
+        Dodaj książkę
+    </a>
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Autorzy</th>
+            <th scope="col">Tytuł</th>
+            <th scope="col">Rok wydania</th>
+            <th scope="col">Akcja</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="tempBook : ${books}">
+            <td th:text="${tempBook.authors}"/>
+            <td th:text="${tempBook.title}"/>
+            <td th:text="${tempBook.publicationYear}"/>
+
+            <td>
+                <a th:href="@{/books/detailsBookForm(bookId=${tempBook.id})}"
+                   class="btn btn-secondary btn-sm">
+                    Szczegóły
+                </a>
+
+                <a th:href="@{/books/updateBookForm(bookId=${tempBook.id})}"
+                   class="btn btn-info btn-sm">
+                    Zaktualizuj
+                </a>
+
+                <a th:href="@{/books/delete(bookId=${tempBook.id})}"
+                   class="btn btn-danger btn-sm"
+                   onclick="if (!(confirm('Czy na pewno chcesz usunąć tę książkę?'))) return false">
+                    Usuń
+                </a>
+            </td>
+
+
+
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>

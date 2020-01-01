@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Our Library</title>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h3>Our Library</h3>
+    <hr>
+
+    <p class="h4 mb-4">Szczegóły książki</p>
+
+    <form action="#" th:action="@{/books/saveBook}"
+          th:object="${book}" method="POST">
+
+        <fieldset disabled>
+
+            <input type="hidden" th:field="*{id}"/>
+
+            <div class="form-group row">
+                <label for="staticAuthors" class="col-sm-2 col-form-label">Autorzy:</label>
+                <div class="col-sm-6">
+                    <input type="text" th:field="*{authors}" class="form-control" id="staticAuthors"
+                           placeholder="Autorzy">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="staticTitle" class="col-sm-2 col-form-label">Tytuł:</label>
+                <div class="col-sm-6">
+                    <input type="text" th:field="*{title}" class="form-control" id="staticTitle" placeholder="Tytuł">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="staticEdition" class="col-sm-2 col-form-label">Wydanie:</label>
+                <div class="col-sm-6">
+                    <input type="text" th:field="*{edition}" class="form-control" id="staticEdition"
+                           placeholder="Wydanie">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="staticPublisher" class="col-sm-2 col-form-label">Wydawnictwo:</label>
+                <div class="col-sm-6">
+                    <input type="text" th:field="*{publisher}" class="form-control" id="staticPublisher"
+                           placeholder="Wydawnictwo">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="staticPublicationYear" class="col-sm-2 col-form-label">Rok wydania:</label>
+                <div class="col-sm-6">
+                    <input type="text" th:field="*{publicationYear}" class="form-control" id="staticPublicationYear"
+                           placeholder="Rok wydania">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="staticNumberOfPages" class="col-sm-2 col-form-label">Liczba stron:</label>
+                <div class="col-sm-6">
+                    <input type="text" th:field="*{numberOfPages}" class="form-control" id="staticNumberOfPages"
+                           placeholder="Liczba stron">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="staticBinding" class="col-sm-2 col-form-label">Oprawa:</label>
+                <div class="col-sm-6">
+                    <input type="text" th:field="*{binding}" class="form-control" id="staticBinding"
+                           placeholder="Oprawa">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="staticIsbn" class="col-sm-2 col-form-label">ISBN:</label>
+                <div class="col-sm-6">
+                    <input type="text" th:field="*{isbn}" class="form-control" id="staticIsbn" placeholder="ISBN">
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label for="staticLanguage" class="col-sm-2 col-form-label">Język:</label>
+                <div class="col-sm-6">
+                    <input type="text" th:field="*{language}" class="form-control" id="staticLanguage"
+                           placeholder="Język">
+                </div>
+            </div>
+        </fieldset>
+    </form>
+
+    <hr>
+    <a th:href="@{/books/list}">Powrót</a>
+
+
+    </form>
+</div>
+
+</body>
+</html>
