@@ -2,10 +2,9 @@ DROP USER IF EXISTS 'ourlibrary'@'localhost';
 CREATE USER IF NOT EXISTS 'ourlibrary'@'localhost' IDENTIFIED WITH mysql_native_password BY 'ourlibrary';
 GRANT ALL PRIVILEGES ON *.* TO 'ourlibrary'@'localhost';
 
+DROP DATABASE IF EXISTS `our_library`;
 
-DROP DATABASE  IF EXISTS `our_library`;
-
-CREATE DATABASE  IF NOT EXISTS `our_library` DEFAULT CHARACTER SET utf8 COLLATE utf8_polish_ci;
+CREATE DATABASE IF NOT EXISTS `our_library` DEFAULT CHARACTER SET utf8 COLLATE utf8_polish_ci;
 USE `our_library`;
 
 DROP TABLE IF EXISTS `book`;

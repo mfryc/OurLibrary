@@ -1,5 +1,7 @@
 <!DOCTYPE HTML>
-<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<html lang="pl"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head>
     <!-- Required meta tags -->
@@ -7,7 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
     <title>Our Library</title>
 </head>
@@ -20,6 +23,7 @@
     <hr>
 
     <a th:href="@{/books/addBookForm}"
+       sec:authorize="hasAnyRole('ROLE_LIBRARIAN', 'ROLE_ADMIN')"
        class="btn btn-primary btn=sm mb-3">
         Dodaj książkę
     </a>
@@ -47,22 +51,28 @@
                 </a>
 
                 <a th:href="@{/books/updateBookForm(bookId=${tempBook.id})}"
+                   sec:authorize="hasAnyRole('ROLE_LIBRARIAN', 'ROLE_ADMIN')"
                    class="btn btn-info btn-sm">
                     Zaktualizuj
                 </a>
 
                 <a th:href="@{/books/delete(bookId=${tempBook.id})}"
+                   sec:authorize="hasRole('ROLE_ADMIN')"
                    class="btn btn-danger btn-sm"
                    onclick="if (!(confirm('Czy na pewno chcesz usunąć tę książkę?'))) return false">
                     Usuń
                 </a>
             </td>
-
-
-
         </tr>
         </tbody>
     </table>
+
+    <form action="#" th:action="@{/logout}"
+          method="POST">
+
+        <input type="submit" value="Wyloguj" class="btn btn-outline-primary mt-2"/>
+
+    </form>
 
 </div>
 
