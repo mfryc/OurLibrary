@@ -27,10 +27,4 @@ public class DataSourceConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(EntityManagerFactoryBuilder builder, DataSource appDataSource) {
         return builder.dataSource(appDataSource).build();
     }
-
-    @Bean
-    @ConfigurationProperties(prefix = "security.datasource")
-    public DataSource securityDataSource() {
-        return DataSourceBuilder.create().build();
-    }
 }

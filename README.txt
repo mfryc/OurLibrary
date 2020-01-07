@@ -1,4 +1,4 @@
-OUR LIBRARY VER. 0.0.1 (SPRING BOOT, SPRING SECURITY, MySQL AND THYMELEAF)
+OUR LIBRARY VER. 0.0.3 (SPRING BOOT, SPRING SECURITY, MySQL AND THYMELEAF)
 ==========================================================================
 
 Application for managing of books in the library.
@@ -15,7 +15,7 @@ In the application, you can display content based on user role.
 TEST THE APPLICATION
 ====================
 
-0. Run the our_library.sql and our_library_security.sql script in MySQL Workbench before running the application.
+0. Run the our_library.sql script in MySQL Workbench before running the application.
 
 1. Run the Spring Boot application: OurLibraryApplication.java
 
@@ -30,3 +30,5 @@ TEST THE APPLICATION
 | librarian | librarian | ROLE_USER, ROLE_LIBRARIAN |
 | admin     | admin     | ROLE_USER, ROLE_ADMIN     |
 +-----------+-----------+---------------------------+
+
+4. You can also create your own account with ROLE_USER privileges!

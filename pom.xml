@@ -10,9 +10,9 @@
 	</parent>
 	<groupId>com.ourlibrary</groupId>
 	<artifactId>OurLibrary</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.3</version>
 	<name>OurLibrary</name>
-	<description>Demo project for Spring Boot</description>
+	<description>OurLibrary - application for managing of books in the library</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -47,11 +47,6 @@
 					<artifactId>junit-vintage-engine</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
 		<dependency>
