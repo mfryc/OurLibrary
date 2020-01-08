@@ -22,7 +22,6 @@ public class BookController {
 
     @GetMapping("/list")
     public String showBookList(Model model) {
-
         List<Book> books = bookService.findAll();
 
         model.addAttribute("books", books);
@@ -32,7 +31,6 @@ public class BookController {
 
     @GetMapping("/addBookForm")
     public String showAddForm(Model model) {
-
         Book book = new Book();
 
         model.addAttribute("book", book);
@@ -42,7 +40,6 @@ public class BookController {
 
     @GetMapping("/updateBookForm")
     public String showUpdateForm(@RequestParam("bookId") int id, Model model) {
-
         Book book = bookService.findById(id);
 
         model.addAttribute("book", book);
@@ -52,7 +49,6 @@ public class BookController {
 
     @PostMapping("/saveBook")
     public String saveBook(@ModelAttribute("book") Book book) {
-
         bookService.save(book);
 
         return "redirect:/books/list";
@@ -60,7 +56,6 @@ public class BookController {
 
     @GetMapping("/delete")
     public String deleteBook(@RequestParam("bookId") int id) {
-
         bookService.deleteById(id);
 
         return "redirect:/books/list";
@@ -68,11 +63,19 @@ public class BookController {
 
     @GetMapping("/detailsBookForm")
     public String showBookDetails(@RequestParam("bookId") int id, Model model) {
-
         Book book = bookService.findById(id);
 
         model.addAttribute("book", book);
 
         return "book-details-form";
+    }
+
+    @GetMapping("/search")
+    public String search(@RequestParam("bookAuthorOrTitle") String bookInfo, Model theModel) {
+        List<Book> books = bookService.searchBy(bookInfo);
+
+        theModel.addAttribute("books", books);
+
+        return "/list-books";
     }
 }

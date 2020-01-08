@@ -1,4 +1,4 @@
-OUR LIBRARY VER. 0.0.3 (SPRING BOOT, SPRING SECURITY, MySQL AND THYMELEAF)
+OUR LIBRARY VER. 0.0.4 (SPRING BOOT, SPRING SECURITY, MySQL AND THYMELEAF)
 ==========================================================================
 
 Application for managing of books in the library.

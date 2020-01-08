@@ -43,4 +43,17 @@ public class BookService {
     public void deleteById(int id) {
         bookRepository.deleteById(id);
     }
+
+    public List<Book> searchBy(String bookInfo) {
+        List<Book> results = null;
+
+        if (bookInfo != null && (bookInfo.trim().length() > 0)) {
+            results = bookRepository.findByAuthorsContainsOrTitleContainsAllIgnoreCase(bookInfo, bookInfo);
+        }
+        else {
+            results = findAll();
+        }
+
+        return results;
+    }
 }

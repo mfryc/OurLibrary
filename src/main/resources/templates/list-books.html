@@ -22,6 +22,11 @@
     <h3>Our Library</h3>
     <hr>
 
+    <form th:action="@{/books/search}" class="form-inline">
+        <input class="form-control  ml-6 mr-sm-2 mb-3" type="search" name="bookAuthorOrTitle" placeholder="Podaj autora lub tytuł" />
+        <button class="btn btn-success mb-3" type="submit">Szukaj</button>
+    </form>
+
     <a th:href="@{/books/addBookForm}"
        sec:authorize="hasAnyRole('ROLE_LIBRARIAN', 'ROLE_ADMIN')"
        class="btn btn-primary btn=sm mb-3">
